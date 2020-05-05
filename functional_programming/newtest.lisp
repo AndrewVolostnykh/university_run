@@ -93,8 +93,9 @@
   (max-no-loop list (car list)))
 ;;; nice, this works
 
-;;; attempt to work with asoc list
-(defvar *alist* ())
+;;; attempt to work with data structures
+;;; associative list
+(defvar alist ())
 
 (defun asoc-list-add (alist key value)
   (cons (cons key value) alist))
@@ -103,3 +104,53 @@
     (loop for x in alist
        do (if (= key (car x))
 	      (return (cdr x)))))
+
+(defun assoc-get (key alist)
+  (if (null alist)
+      (values  NIL NIL)
+  (if (= (car (car alist)) key)
+      (values (cdr (car alist)) T)
+      (assoc-get key (cdr alist)))))
+
+;;; property list
+(defvar pls () )
+
+(defun prop-list-add (plist key value)
+  (append plist (list key value))) 
+
+(defun prop-get (key plist)
+  (if (null plist)
+      (values NIL NIL)
+      (if (= (car plist) key)
+	  (values (car (cdr plist)) T)
+	  (prop-get key (cdr (cdr plist))))))
+
+;;; the most interesting! binary-search-tree
+(defvar tmpbtr () )
+
+(defun btree-add (btree key value)
+  (if (null btree)
+      (list (cons key value) nil nil)
+      (if (> (car (car btree)) key)
+	  (list (car btree) (btree-add (car (cdr btree)) key value) (car (cdr (cdr btree))))
+	  (if (< (car (car btree)) key)
+	      (list (car btree) (car (cdr btree)) (btree-add (car (cdr (cdr btree))) key value))
+	      (list (cons key value) (car (cdr btree)) (car (cdr (cdr btree))))))))
+
+
+(defun btree-get (btree key)
+  (if (null btree)
+      (values NIL NIL)
+      (if (> (car (car btree)) key)
+	  (btree-get (car (cdr btree)) key)
+	  (if (< (car (car btree)) key)
+	      (btree-get (car (cdr (cdr btree))) key)
+	      (values (cdr (car btree)) T)))))
+
+
+
+
+;;; ----------------------------
+;;; dont mind, this is just test
+(defun diw (first second)
+  (values (string> first second)))
