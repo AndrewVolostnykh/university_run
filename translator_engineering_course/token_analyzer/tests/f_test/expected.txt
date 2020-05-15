@@ -1,0 +1,31 @@
+      code      line    column                name
+
+       401         1         1             PROGRAM
+      1001         1         9               TEST3
+        59         1        14                   ;
+       404         2         1               CONST
+      1002         3         5              CONST1
+        61         3        12                   =
+      1003         4         5              CONST2
+        61         4        12                   =
+        45         4        14                   -
+       501         4        14                   1
+        59         4        16                   ;
+      1004         5         5        THISISACONST
+        61         5        18                   =
+       502         5        20                   0
+        59         5        21                   ;
+       402         7         1               BEGIN
+      1005         8         2                VAR1
+       301         8         7                  :=
+       503         8        10                 100
+        59         8        13                   ;
+      1006         9         2                VAR2
+       301         9         6                  :=
+        45         9         8                   -
+       503         9         8                 100
+        59         9        12                   ;
+
+
+Undefined token, error 2000 in line: 3 column 14: 1a0;
+Unclosed comment, error: 2001 in line: 10 column 1: (* COMMENT 	 seconD ::LINE )	 LAST LINE ###$ ╦ )END.
