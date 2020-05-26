@@ -1,0 +1,9 @@
+PROGRAM TEST1;
+CONST
+    CONST1 = 10;
+    CONST2 = -1;
+    THISISACONST = 0;
+
+BEGIN
+
+END.

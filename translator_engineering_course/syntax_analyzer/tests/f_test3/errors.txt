@@ -1,0 +1,2 @@
+SyntaxAnalyzer: Error (line 3, column 7): '<constant-declaration>' expected but ':=' found
+
